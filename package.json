@@ -1,0 +1,24 @@
+{
+  "name": "Ripple-name",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/annatonger/ripple-name-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annatonger/ripple-name-tool/issues"
+  },
+  "homepage": "https://github.com/annatonger/ripple-name-tool",
+  "dependencies": {
+    "body-parser": "^1.9.0",
+    "ecstatic": "^0.5.5",
+    "express": "^4.9.7"
+  }
+}
