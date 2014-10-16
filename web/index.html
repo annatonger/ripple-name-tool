@@ -12,10 +12,16 @@
 			var name=$('#name').val()
 			console.log(name)
 			console.log(window.location)
-			$.post(window.location.href+'submitname',{foo:42,name:name})
-			.done(function(response){
-				console.log(response)
-			})
+            $.ajax({
+                url:window.location.href+'submitname',
+                type:"POST",
+                data:JSON.stringify({name:name}),
+                contentType:"application/json; charset=utf-8",
+                dataType:"json",
+                success: function(){
+                    console.log(response)
+                }
+            })
 		})
 		</script>
 	</body>
