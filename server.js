@@ -17,7 +17,7 @@ app.post('/submitname',function(req,res){
         var obj={}
         if (body.exists==true){
             obj.exists=true
-            obj.username=body.username
+            obj.username="~"+body.username
             obj.address=body.address
         }
         else {
