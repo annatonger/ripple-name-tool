@@ -1,42 +1,48 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<script src='js/jquery-2.1.1.min.js'></script>
-    <link href='css/index.css' rel='stylesheet' type='text/css' /> 
+    <title>Ripple Name Tool</title>
+    <link href='css/index.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <h1>Ripple Name Tool </h1>
+    <h1>Ripple Name Tool</h1>
     <hr>
-    <h4> Quickly look up the address associated with a Ripple name, and vice versa. </h4>
-    <div id='inputcontainer'>
-    <input type=text name='myName' id='name'/>
-    <input type=submit id='myButton' value = 'Get address or name'/>
-    </div>
+    <h4>Quickly look up the address associated with a Ripple name, and vice versa.</h4>
+    <form>
+        <div id='inputcontainer'>
+            <input type='text' name='myName' id='name' placeholder='name or address' required autofocus>
+            <input type='submit' id='myButton' value='Get address or name'>
+        </div>
+    </form>
     <div id='output'></div>
+    <script src='js/jquery-2.1.1.min.js'></script>
     <script>
     //ev represents the button click event in HTML
-    $('#myButton').click(function(ev){
-        var name=$('#name').val()
-        $('#output').html('Retrieving...')
+    $('form').submit(function(ev) {
+        ev.preventDefault();
+
+        var name = $('#name').val();
+        $('#output').html('Retrieving…');
         $.ajax({
-            url:window.location.href+'submitname',
-            type:"POST",
-            data:JSON.stringify({name:name}),
-            contentType:"application/json; charset=utf-8",
-            dataType:"json",
-            success: function(obj){
-                console.log(obj)
-                var os=''
+            url:         window.location.href + 'submitname',
+            type:        "POST",
+            data:        JSON.stringify({name:name}),
+            contentType: "application/json; charset=utf-8",
+            dataType:    "json",
+            success:     function(obj) {
+                console.log(obj);
+                var os = '';
                 if (obj.exists) {
-                    os += "<div><span class='key'>Ripple name</span><span class='value'>"+obj.username+"</span></div>"
-                    os += "<div><span class='key'>Ripple address</span><span class='value'>"+' '+obj.address+"</span></div>"
+                    os += "<div><span class='key'>Ripple name</span><span class='value'>"+obj.username+"</span></div>";
+                    os += "<div><span class='key'>Ripple address</span><span class='value'>"+' '+obj.address+"</span></div>";
                 } 
                 else {
-                    os = "Ripple name does not exist."
+                    os = "Ripple name does not exist.";
                 }
-                $('#output').html(os)
+                $('#output').html(os);
             }
-        })
-    })
+        });
+    });
     </script>
 </body>
 </html>
