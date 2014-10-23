@@ -1,8 +1,8 @@
 {
   "name": "Ripple-name",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Quickly look up the address associated with a Ripple name, and vice versa.",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/annatonger/ripple-name-tool.git"
   },
-  "author": "",
+  "author": "Anna Tong <tonga@ripple.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/annatonger/ripple-name-tool/issues"
